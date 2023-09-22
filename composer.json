@@ -1,0 +1,34 @@
+{
+    "name": "reesmcivor/laravel-shop",
+    "description": "Laravel shop.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rees McIvor",
+            "email": "reesmcivor@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "ReesMcIvor\\Shop\\": "src/",
+            "ReesMcIvor\\Shop\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ReesMcIvor\\Shop\\ShopPackageServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "version": "0.0.1"
+}
