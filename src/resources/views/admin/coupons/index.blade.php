@@ -16,7 +16,7 @@
                 ['name' => 'amount', 'label' => 'Amount', 'attribute' => 'amount'],
                 ['name' => 'users', 'label' => 'Users', 'callback' =>
                     function($coupon) {
-                        return implode(',', $coupon->users->pluck('email')->toArray());
+                        return implode(', ', $coupon->users->pluck('name')->toArray());
                     }
                 ],
             ]"

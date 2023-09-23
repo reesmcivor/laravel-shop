@@ -79,7 +79,9 @@ class CouponController extends Controller
      */
     public function update(CouponRequest $request, $id)
     {
-        Coupon::findOrFail($id)->update($request->validated());
+        $coupon = Coupon::findOrFail($id);
+        $coupon->update($request->validated());
+        $coupon->users()->sync($request->get("user_ids"));
         return redirect()->route('admin.shop.coupons.index');
     }
 
