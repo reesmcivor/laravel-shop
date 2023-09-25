@@ -9,3 +9,4 @@ Route::middleware(array_filter([
 ]))->prefix('admin/shop')->name('admin.shop.')->group(function () {
     Route::resource('coupons', Controllers\Admin\CouponController::class);
 });
+

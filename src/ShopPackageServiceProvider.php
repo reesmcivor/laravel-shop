@@ -30,6 +30,10 @@ class ShopPackageServiceProvider extends ServiceProvider
         Route::middleware(array_filter(['web', $this->tenancyExists ? 'tenant' : null]))
             ->namespace($this->namespace)
             ->group($this->modulePath('routes/web.php'));
+
+        Route::middleware(array_filter(['api', $this->tenancyExists ? 'tenant' : null]))
+            ->namespace($this->namespace)
+            ->group($this->modulePath('routes/api.php'));
     }
 
     private function modulePath($path)
