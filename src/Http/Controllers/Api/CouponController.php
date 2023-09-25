@@ -14,12 +14,16 @@ class CouponController extends Controller
     public function apply(Request $request)
     {
         $coupon = Coupon::where('code', $request->get('code'))->firstOrFail();
-
-        event(new CouponApplied($coupon));
+        if($coupon->isValid($request->user())) {
+            event(new CouponApplied($coupon));
+            return response()->json([
+                'message' => 'Applied coupon successfully.',
+            ]);
+        }
 
         return response()->json([
-            'message' => 'Applied coupon successfully.',
-        ]);
+            'message' => 'Coupon is not valid.',
+        ], 422);
     }
 
     public function remove(Request $request)

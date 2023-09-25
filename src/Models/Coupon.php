@@ -45,4 +45,13 @@ class Coupon extends Model
         }
         return $discount;
     }
+
+    public function isValid( User $user ) : bool
+    {
+        if($this->users->count()) {
+            return $this->users->contains($user);
+        }
+
+        return true;
+    }
 }
